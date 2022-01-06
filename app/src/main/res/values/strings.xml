@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">VCAM</string>
-    <string name="click_to_go_to_repo">click to go to repository</string>
-    <string name="description">Please go to online repository to check for latest update, latest usgae and report bugs</string>
-    <string name="Warning">DO NOT USE FOR ANY ILLEGAL PURPOSE !!YOU NEED TO TAKE ALL RESPONSIBILITY AND CONSEQUENCE!!</string>
+    <string name="select_file" translatable="false">选择视频</string>
+    <string name="activate_hijacked" translatable="false">激活劫持</string>
+    <string name="disable_hijacked" translatable="false">禁用劫持</string>
+    <string name="activate_voices" translatable="false">激活声音</string>
+    <string name="disable_voices" translatable="false">禁用声音</string>
+    <string name="description">将要替换的视频放到"/sdcard/DCIM/Camera1"目录下并重名为"virtual.mp4"</string>
+    <string name="Warning">注意视频的尺寸和要摄像头拍摄的尺寸一样!!!</string>
 </resources>

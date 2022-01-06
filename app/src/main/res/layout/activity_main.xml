@@ -24,9 +24,29 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/select_file_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/click_to_go_to_repo" />
+            android:text="@string/select_file" />
+        <Button
+            android:id="@+id/act_hijacked_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activate_hijacked" />
+        <Button
+            android:id="@+id/dis_hijacked_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/disable_hijacked" />
+        <Button
+            android:id="@+id/act_voices_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activate_voices" />
+        <Button
+            android:id="@+id/dis_voices_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/disable_voices" />
     </LinearLayout>
 </ScrollView>

@@ -33,6 +33,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.List;
@@ -93,10 +94,12 @@ public class HookMain implements IXposedHookLoadPackage {
     public int c2_ori_height = 720;
 
     public static Class c2_state_callback;
+    public static ClassLoader classLoader;
     public Context toast_content;
 
     public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) throws Exception {
         File file = new File(video_path + "virtual.mp4");
+        classLoader = lpparam.classLoader;
         if (file.exists()) {
             Class cameraclass = XposedHelpers.findClass("android.hardware.Camera", lpparam.classLoader);
             XposedHelpers.findAndHookMethod(cameraclass, "setPreviewTexture", SurfaceTexture.class, new XC_MethodHook() {
@@ -235,6 +238,7 @@ public class HookMain implements IXposedHookLoadPackage {
         XposedHelpers.findAndHookMethod("android.hardware.Camera", lpparam.classLoader, "setPreviewCallback", Camera.PreviewCallback.class, new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) {
+                XposedBridge.log("beforeHookedMethod: " + param.thisObject.getClass() +"." + param.method.getName());
                 if (param.args[0] != null) {
                     process_callback(param);
                 }
@@ -279,6 +283,7 @@ public class HookMain implements IXposedHookLoadPackage {
             @Override
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                 super.afterHookedMethod(param);
+
                 if (param.args[0] instanceof Application) {
 
                     try {
